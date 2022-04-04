@@ -101,6 +101,8 @@ exports.createUser = (req, res, next) => {
     });
 };
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 exports.login = (req, res, next) => {
   const { email, password } = req.body;
   User.findOne({ email }).select('+password')
@@ -114,8 +116,16 @@ exports.login = (req, res, next) => {
           if (!matched) {
             return next(new BadRequestError('Неверный email или пароль.'));
           }
-          const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
-          return res.send({ token });
+          const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key');
+
+          return res.status(200)
+            .cookie('token', token, {
+              maxAge: 60 * 60 * 60 * 24,
+              httpOnly: true,
+              sameSite: 'None',
+              secure: true,
+            })
+            .send({ message: 'Успешно' });
         });
     })
     .catch((err) => {
@@ -136,3 +146,11 @@ exports.getCurrentUser = (req, res, next) => {
       next(err);
     });
 };
+
+exports.logout = (req, res) => {
+  res.clearCookie('token', {
+    httpOnly: true,
+    sameSite: 'None',
+    secure: true,
+  }).send({ message: 'Пользователь вышел' });
+}

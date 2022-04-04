@@ -13,8 +13,8 @@ Content-Type: application/json
 
 {
 
-"name": "admin6",
-"email":"admin7222@yandex.ru",
+"name": "admin26",
+"email":"admi22n7222@yandex.ru",
 "password":"12344",
 "about": "sfgsfsfsdf",
 "avatar": "http://ya-ya-ya.ru"
@@ -32,7 +32,18 @@ Content-Type: application/json
 "password":"12344"
 
 }
+####
+///выйти пользователю
 
+POST http://localhost:3000/logout
+Accept: application/json,
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM5ZTc5OWRjYmYxNzZhMDgxNjQ5YTIiLCJpYXQiOjE2NDc5NjMxNDIsImV4cCI6MTY0ODU2Nzk0Mn0.1aL1g5izZmIqRBMwVcYqVpxzIjNLtm6DIMSTM7DPxoE
+
+{
+"email":"admin7@yandex.ru",
+"password":"12344"
+}
 
 
 
