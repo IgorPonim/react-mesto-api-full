@@ -21,7 +21,7 @@ const mainErrorHadler = require('./middlewares/mainErrorHandler');
 
 // логгер
 const { requestLogger, errorLogger } = require('./middlewares/logger')
-// настройки корс
+// настройки корс можно зайти с лююбого домена
 const cors = require('cors');
 app.use(cors({
   origin: true,

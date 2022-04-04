@@ -203,14 +203,14 @@ function App() {
     auth.authorize(email, password)
       .then((res) => {
         setIsLoadingspinner(true)
-        if (res.token) {
+        
           setTimeout(() => {
             setLoggedIn(true)
             history.push('/')
             setEmail(email)
             setIsLoadingspinner(false)
           }, 3000)
-        }
+        
       })
       .catch((err) => {
         console.log(err)
