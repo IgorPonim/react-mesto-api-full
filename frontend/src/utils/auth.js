@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'https://api.mesto.iigorevich.nomoredomains.work';
 
 export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -28,6 +28,7 @@ export const authorize = (email, password) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
+      credentials: 'include',
       body: JSON.stringify({ email, password })
 
     })
@@ -69,3 +70,22 @@ export const checkToken = (token) => {
     })
 
 }
+
+
+export const logout = () => {
+  return fetch(`${BASE_URL}/logout`, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    credentials: 'include',
+  })
+  .then((res) => {
+    
+    if (!res.ok) {
+      throw new Error('Logout Error');
+    }
+
+    return res.json();
+  });
+};

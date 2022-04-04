@@ -93,10 +93,11 @@ class Api {
 }
 
 export const api = new Api({
-  address: "https://mesto.nomoreparties.co/v1/cohort-32",
+  address: "https://api.mesto.iigorevich.nomoredomains.work",
   headers: {
     authorization: "49a3f156-043e-4000-9a32-20530068bc3d",
     'Content-Type': 'application/json',
   },
+  credentials: 'include'
 });
 
