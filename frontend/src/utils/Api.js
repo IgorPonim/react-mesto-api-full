@@ -1,7 +1,8 @@
 class Api {
-  constructor({ address, headers }) {
+  constructor({ address, headers, credentials }) {
     this._address = address //интересно, но у меня не высвечивал vscode ошибку и браузер не ругался..
     this._headers = headers
+    this._credentials = credentials
   }
 
 
@@ -17,12 +18,14 @@ class Api {
   getInitialCards() {
     return fetch(this._address + '/cards', {
       headers: this._headers,
+      credentials: this._credentials
     }).then(this._checkResponse)
   }
 
   getUserInfo() {//метод загрузки жака ива кусто
     return fetch(this._address + '/users/me', {
       headers: this._headers,
+      credentials: this._credentials
     }).then(this._checkResponse)
   }
 
@@ -30,6 +33,7 @@ class Api {
     return fetch(this._address + '/users/me', {
       method: 'PATCH',
       headers: this._headers,
+      credentials: this._credentials,
       body: JSON.stringify({
         name: data.name,
         about: data.job
@@ -41,6 +45,7 @@ class Api {
     return fetch(this._address + '/cards', {
       method: 'POST',
       headers: this._headers,
+      credentials: this._credentials,
       body: JSON.stringify({
         name,
         link
@@ -53,6 +58,7 @@ class Api {
     return fetch(this._address + `/cards/${cardId}/likes/`, {
       method: 'PUT',
       headers: this._headers,
+      credentials: this._credentials,
     }).then(this._checkResponse)
   }
 
@@ -60,6 +66,7 @@ class Api {
     return fetch(this._address + `/cards/${cardId}/likes/`, {
       method: 'DELETE',
       headers: this._headers,
+      credentials: this._credentials,
     }).then(this._checkResponse)
   }
 
@@ -67,6 +74,7 @@ class Api {
     return fetch(this._address + '/users/me/avatar', {
       method: 'PATCH',
       headers: this._headers,
+      credentials: this._credentials,
       body: JSON.stringify({
         avatar
       })
@@ -77,13 +85,14 @@ class Api {
     return fetch(this._address + `/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
+      credentials: this._credentials,
     }).then(this._checkResponse)
   }
 
 
   changeLikeCardStatus(cardId, isliked) {
     if (!isliked) {
-      return  this.deleteLike(cardId)
+      return this.deleteLike(cardId)
     }
     else return this.sendLike(cardId)
   }
@@ -94,10 +103,11 @@ class Api {
 
 export const api = new Api({
   address: "https://api.mesto.iigorevich.nomoredomains.work",
+  credentials: 'include',
   headers: {
     authorization: "49a3f156-043e-4000-9a32-20530068bc3d",
     'Content-Type': 'application/json',
   },
-  credentials: 'include'
+
 });
 
