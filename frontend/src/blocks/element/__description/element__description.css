@@ -1,0 +1,15 @@
+.element__description {
+  display: flex;
+  min-width: 240px;
+  margin: 20px auto 25px auto;
+  width: 85%;
+  z-index: 100;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 425px) {
+  .element__description {
+    margin-bottom: 27px;
+  }
+}

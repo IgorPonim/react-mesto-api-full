@@ -1,0 +1,7 @@
+.element__reaction_like {
+    background-image: url('../../../../images/blackheart.svg');
+}
+
+.element__reaction_like:hover {
+    opacity: .8;
+}

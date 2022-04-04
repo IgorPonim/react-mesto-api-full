@@ -1,0 +1,12 @@
+.profile__avatars {
+    /*background-image: url('../../../images/leon.jpg');по умолчанию был div и мой любимый актер*/
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-position: center;
+    overflow: hidden;
+   /* background-size: cover;*/
+   object-fit: cover;
+   position: relative;
+
+}

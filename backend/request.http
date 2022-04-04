@@ -1,0 +1,110 @@
+"Все что касается пользователей"///////
+"Все что касается пользователей"///////
+######
+//показать всех
+GET http://localhost:3000/users/
+Accept: application/json,
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM5ZTc5OWRjYmYxNzZhMDgxNjQ5YTIiLCJpYXQiOjE2NDc5NjMxNDIsImV4cCI6MTY0ODU2Nzk0Mn0.1aL1g5izZmIqRBMwVcYqVpxzIjNLtm6DIMSTM7DPxoE
+####
+//создать нового
+POST http://localhost:3000/signup/
+Content-Type: application/json
+
+{
+
+"name": "admin6",
+"email":"admin7222@yandex.ru",
+"password":"12344",
+"about": "sfgsfsfsdf",
+"avatar": "http://ya-ya-ya.ru"
+
+
+}
+//Войти в свою учетку
+#####
+POST http://localhost:3000/signin/
+Content-Type: application/json
+
+{
+
+"email":"admin7@yandex.ru",
+"password":"12344"
+
+}
+
+
+
+
+//найти конкретного по айди
+###
+
+GET  http://localhost:3000/users/me
+Accept: application/json,
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjNhZmY5MmMxNjliZWZiY2U4YTdkNmMiLCJpYXQiOjE2NDgxMjc3NTMsImV4cCI6MTY0ODczMjU1M30.LkCnHdSWAFILU_RQxHC2jIh5-cN-WXgPMKMMkoHfYlg
+######
+//изменить данные о себе
+PATCH   http://localhost:3000/users/me
+Accept: application/json,
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjNhZmY5MmMxNjliZWZiY2U4YTdkNmMiLCJpYXQiOjE2NDgxMjc3NTMsImV4cCI6MTY0ODczMjU1M30.LkCnHdSWAFILU_RQxHC2jIh5-cN-WXgPMKMMkoHfYlg
+
+{
+
+  "name": "\\\\vasy222a2223",
+  "about": "dasdadsasddasdadasdadsasd"
+}
+
+######
+//изменить аватар
+PATCH   http://localhost:3000/users/me/avatar
+Accept: application/json,
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM5ZTc5OWRjYmYxNzZhMDgxNjQ5YTIiLCJpYXQiOjE2NDc5NjMxNDIsImV4cCI6MTY0ODU2Nzk0Mn0.1aL1g5izZmIqRBMwVcYqVpxzIjNLtm6DIMSTM7DPxoE
+
+{
+  "avatar": "https://ya23123.org/av.bmp"
+}
+######
+
+
+###################################################################
+
+"Все что касается карточек"///////
+"Все что касается карточек"///////
+#####
+//получить все карточки
+GET http://localhost:3000/cards/
+Accept: application/json,
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM5ZTc5OWRjYmYxNzZhMDgxNjQ5YTIiLCJpYXQiOjE2NDc5NjMxNDIsImV4cCI6MTY0ODU2Nzk0Mn0.1aL1g5izZmIqRBMwVcYqVpxzIjNLtm6DIMSTM7DPxoE
+###
+//создать карточку
+POST http://localhost:3000/cards/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjNhZmY5MmMxNjliZWZiY2U4YTdkNmMiLCJpYXQiOjE2NDgxMTg0MjYsImV4cCI6MTY0ODcyMzIyNn0.URobUCtMJGet4mMLHdHgmO0ZlX8YNq_My4vYK_FL3_A
+
+{
+"name": "n222",
+"link": "http://ya-ya-ya.ru"
+
+}
+###################
+//добавить лайк
+PUT http://localhost:3000/cards/22222/likes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM3MzVlM2JjMjBiYjI0OGJmZDk0OTMiLCJpYXQiOjE2NDc3ODU4MTYsImV4cCI6MTY0ODM5MDYxNn0.lkX_7KFEPaSgcpy5iyTmb8Nc5dawqt_7XqrHUi92aac
+
+///убрать лайк
+########
+DELETE  http://localhost:3000/cards/62384c9fd0349ca3ea214c/likes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM3MzVlM2JjMjBiYjI0OGJmZDk0OTMiLCJpYXQiOjE2NDc3ODU4MTYsImV4cCI6MTY0ODM5MDYxNn0.lkX_7KFEPaSgcpy5iyTmb8Nc5dawqt_7XqrHUi92aac
+
+
+##################
+DELETE    http://localhost:3000/cards/62384c9fd09ca3ea214c
+Accept: application/json,
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjNhZmY5MmMxNjliZWZiY2U4YTdkNmMiLCJpYXQiOjE2NDgxMTg0MjYsImV4cCI6MTY0ODcyMzIyNn0.URobUCtMJGet4mMLHdHgmO0ZlX8YNq_My4vYK_FL3_A

@@ -1,0 +1,13 @@
+.image-container {
+  position: relative;
+  object-fit: inherit;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+@media screen and (max-width: 425px) {
+  .image-container {
+    max-height: 300px;
+  }
+}

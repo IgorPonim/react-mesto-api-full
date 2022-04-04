@@ -1,0 +1,24 @@
+.register__input {
+    width: 100%;
+    border: none;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 17px;
+    outline: none;
+    background-color: unset;
+    border-bottom: 2px solid #CCCCCC;
+    color: #FFFFFF;
+    height: 27px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    
+}
+
+
+.register__input::placeholder {
+    font-size: 14px;
+    line-height: 17px;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #CCCCCC;
+}
