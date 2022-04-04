@@ -40,28 +40,24 @@ function App() {
 
   //если мы уже вошли ранее он зайдет сам
   useEffect(() => {
-    if (localStorage.getItem('jwt')) {
-      const jwt = localStorage.getItem('jwt')
+    api.getUserInfo()
+      .then((res) => {
+        if (res) {
+          // console.log(res)
+          history.push('/')
+          setLoggedIn(true);
+          setEmail(res.email);
+          setCurrentUser(res)
 
-      auth.checkToken(jwt)
+        } else {
+          setLoggedIn(false);
+          setEmail('');
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
 
-        .then((res) => {
-          if (res) {
-            // console.log(res)
-            history.push('/')
-            setLoggedIn(true);
-            setEmail(res.data.email);
-
-
-          } else {
-            setLoggedIn(false);
-            setEmail('');
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-        });
-    }
   }, [loggedIn, history]) //не могу с вами согласиться, не понимаю как убрать отсюда loggedin ведь тогда он не отследит статус пользователя
 
 
@@ -203,14 +199,14 @@ function App() {
     auth.authorize(email, password)
       .then((res) => {
         setIsLoadingspinner(true)
-        
-          setTimeout(() => {
-            setLoggedIn(true)
-            history.push('/')
-            setEmail(email)
-            setIsLoadingspinner(false)
-          }, 3000)
-        
+
+        setTimeout(() => {
+          setLoggedIn(true)
+          history.push('/')
+          setEmail(email)
+          setIsLoadingspinner(false)
+        }, 3000)
+
       })
       .catch((err) => {
         console.log(err)
@@ -246,13 +242,13 @@ function App() {
   //забираю токен из памяти
   function onLoggout() {
     auth.logout()
-    .then(() => {
-      setLoggedIn(false);
-    })
-    .catch((err) => {
-      showToolTipError()
-      console.log(err);
-    })
+      .then(() => {
+        setLoggedIn(false);
+      })
+      .catch((err) => {
+        showToolTipError()
+        console.log(err);
+      })
   }
 
   // //чтобы сообщение само закрывалось, так модно, молодежно
@@ -272,7 +268,7 @@ function App() {
   const [isloadingspinner, setIsLoadingspinner] = useState(false)
   const [newData, setNewData] = useState(false)
 
- 
+
   return (
 
     <div className='page'>
