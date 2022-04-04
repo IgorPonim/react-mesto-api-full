@@ -245,7 +245,14 @@ function App() {
 
   //забираю токен из памяти
   function onLoggout() {
-    localStorage.removeItem('jwt')
+    auth.logout()
+    .then(() => {
+      setLoggedIn(false);
+    })
+    .catch((err) => {
+      showToolTipError()
+      console.log(err);
+    })
   }
 
   // //чтобы сообщение само закрывалось, так модно, молодежно
