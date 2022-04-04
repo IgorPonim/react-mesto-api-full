@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 //  раздаем статику
 const path = require('path');
@@ -13,13 +14,21 @@ const { routes } = require('./routes/routes');
 //  парсер
 app.use(express.json());
 
-const { login, createUser } = require('./controllers/user');
+const { login, createUser, logout } = require('./controllers/user');
 const auth = require('./middlewares/auth');
 const { signUp, signIn } = require('./middlewares/joiValidation');
 const mainErrorHadler = require('./middlewares/mainErrorHandler');
 
 // логгер
-const {requestLogger, errorLogger } = require('./middlewares/logger')
+const { requestLogger, errorLogger } = require('./middlewares/logger')
+// настройки корс
+const cors = require('cors');
+app.use(cors({
+  origin: true,
+  credentials: true,
+}));
+
+
 app.use(requestLogger)
 
 app.get('/crash-test', () => {
@@ -28,13 +37,14 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-require('dotenv').config()
-// cors
+
+
 
 
 
 app.post('/signup', signUp, createUser);
 app.post('/signin', signIn, login);
+app.get('/logout', logout)
 app.use(cookieParser());
 app.use(auth);
 
@@ -68,5 +78,3 @@ app.use(routes);
 app.use(errors());
 
 app.use(mainErrorHadler);
-const cors = require('cors');
-app.use(cors)
