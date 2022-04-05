@@ -1,29 +1,12 @@
-# Проектная работа номер 12
+# Проектная работа номер 15
 ___________________________
 ## Выполнил студент Игорь Игоревич _IgorPonim@yandex.ru_
 
 _________________________
 
-Это практическая работа номер 12, где проект **mesto** был переписан с использованием библиотеки **React** 
+Фронтенд - https://mesto.iigorevich.nomoredomains.work/
+API - https://api.mesto.iigorevich.nomoredomains.work
 
- ```App.js``` - файл сборки компонентов
- ```src/blocks``` - стили
-```src/components``` - компоненты
-```src/images``` - картинки
-```src/utils``` - API из предыдущей работы
-```src/vendor``` - шрифты
-```src/styles``` - доп стили
-___________________________
-
-Установка: 
-
-1. git clone git@github.com:IgorPonim/mesto-react.git
-2. npm i - npm install
-3. npm run start - локальный сервер
-4. npm run build - сборка
-___________________________
-
-    ‿︵‿ヽ(°□° )ノ︵‿︵
-
+Адрес виртуальной машины - 51.250.98.120
 
 
