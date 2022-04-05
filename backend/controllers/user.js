@@ -4,6 +4,7 @@ const { User } = require('../models/usermodel');
 const ConflictError = require('../errors/ConflictError');
 const BadRequestError = require('../errors/BadRequestError');
 const NotFoundError = require('../errors/NotFoundError');
+const UnathorizedError = require('../errors/UnathorizedError');
 
 // огласите весь список пожалуйста
 exports.getUsers = (req, res, next) => {
@@ -113,13 +114,13 @@ exports.login = (req, res, next) => {
   User.findOne({ email }).select('+password')
     .then((user) => {
       if (!user) {
-        return next(new BadRequestError('Неверный email или пароль.'));
+        return next(new UnathorizedError('Неверный email или пароль.'));
       }
       // расшифровываем введенный пароль
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            return next(new BadRequestError('Неверный email или пароль.'));
+            return next(new UnathorizedError('Неверный email или пароль.'));
           }
           const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key');
 
