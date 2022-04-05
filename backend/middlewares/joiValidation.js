@@ -28,7 +28,7 @@ const urlChecking = Joi.string().custom((prot) => {
 const signIn = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(2).max(10000),
+    password: Joi.string().required(),
   }),
 });
 
@@ -37,7 +37,7 @@ const signUp = celebrate({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(2).max(10000),
+    password: Joi.string().required(),
     avatar: urlChecking,
   }),
 });
@@ -50,7 +50,7 @@ const avatarValidate = celebrate({
 
 const createCardValidate = celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
+    name: Joi.string().min(2).max(30).required(),
     link: urlChecking,
   }),
 });

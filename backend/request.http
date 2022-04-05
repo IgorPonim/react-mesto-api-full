@@ -13,8 +13,8 @@ Content-Type: application/json
 
 {
 
-"name": "admin26",
-"email":"admi22n7222@yandex.ru",
+"name": "adm32221232in6626",
+"email":"adm2i212231266265n7222@yandex.ru",
 "password":"12344",
 "about": "sfgsfsfsdf",
 "avatar": "http://ya-ya-ya.ru"
@@ -28,9 +28,9 @@ Content-Type: application/json
 
 {
 
-"email":"admin7@yandex.ru",
-"password":"12344"
 
+"email":"adm2i2131266265n7222@yandex.ru",
+"password":"12344"
 }
 ####
 ///выйти пользователю
@@ -94,7 +94,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM5ZTc5O
 //создать карточку
 POST http://localhost:3000/cards/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjNhZmY5MmMxNjliZWZiY2U4YTdkNmMiLCJpYXQiOjE2NDgxMTg0MjYsImV4cCI6MTY0ODcyMzIyNn0.URobUCtMJGet4mMLHdHgmO0ZlX8YNq_My4vYK_FL3_A
+Set-Cookie:  : default
+Authorization: :  token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRiZmIzMjU0NWJlZTVlNzAyOWRmZjQiLCJpYXQiOjE2NDkxNTE5MDV9.GYgpLY46D3LMWiVG5Fr9PsE2ZiTJgtiNZkwWrVJRcbc;
 
 {
 "name": "n222",
