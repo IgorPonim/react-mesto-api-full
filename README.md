@@ -7,6 +7,4 @@ _________________________
 Фронтенд - https://mesto.iigorevich.nomoredomains.work/
 API - https://api.mesto.iigorevich.nomoredomains.work
 
-Адрес виртуальной машины - 51.250.98.120
-
-
+Адрес виртуальной машины - igor-ponim@51.250.98.120
