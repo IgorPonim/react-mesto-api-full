@@ -92,7 +92,12 @@ exports.createUser = (req, res, next) => {
       about: req.body.about,
       password: hash,
     }))
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.status(200).send({
+      name: user.name,
+      about: user.about,
+      email: user.email,
+      avatar: user.avatar,
+    }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Неверные данные о пользователе или неверная ссылка на аватар.'));
@@ -129,7 +134,7 @@ exports.login = (req, res, next) => {
         });
     })
     .catch((err) => {
-      res.status(401).send({ message: err.message });
+      next(err);
     });
 };
 
@@ -153,4 +158,4 @@ exports.logout = (req, res) => {
     sameSite: 'None',
     secure: true,
   }).send({ message: 'Пользователь вышел' });
-}
+};
