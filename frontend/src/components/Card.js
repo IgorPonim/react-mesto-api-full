@@ -8,13 +8,13 @@ const Card = ({ card, onCardClick , onCardLike, onCardDelete}) => {
 
     const currentUser = useContext(CurrentUserContext) //вытаскиваю данные из контекста
     // console.log(useContext(CurrentUserContext) )
-    const isOwn = card.owner._id === currentUser._id;
+    const isOwn = card.owner === currentUser._id;
     const cardDeleteButtonClassName = (
         `element__delete ${isOwn ? 'element__delete_visible' : 'element__delete_hidden'}`
     );
 
 
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i.toString() === currentUser._id);
     const cardLikeButtonClassName = `element__reaction ${isLiked ? 'element__reaction_like' : ''}`;
  
 
